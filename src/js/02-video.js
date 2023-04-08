@@ -4,10 +4,9 @@ const CURRENT_TIME_KEY = "videoplayer-current-time";
 
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
-const pauseTime = localStorage.getItem(CURRENT_TIME_KEY);
+const pauseTime = localStorage.getItem(CURRENT_TIME_KEY) || 0;
 console.log(pauseTime);
 
-// console.dir(localStorage);
 player.on('timeupdate', throttle(onSavePausedTime, 1000));
 
 player.setCurrentTime(pauseTime);
